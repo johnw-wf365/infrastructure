@@ -60,7 +60,7 @@ jobs:
         id: init
         run: |
           terraform init \
-            -backend-config="conn_str=${{ secrets.TF_BACKEND_CONN_STR }}&sslmode=disable"
+            -backend-config="conn_str=${{ secrets.TF_BACKEND_CONN_STR }}"
       - name: Terraform Plan
         id: plan
         run: terraform plan -no-color -input=false
@@ -86,7 +86,7 @@ jobs:
       - name: Terraform Init
         run: |
           terraform init \
-            -backend-config="conn_str=${{ secrets.TF_BACKEND_CONN_STR }}&sslmode=disable"
+            -backend-config="conn_str=${{ secrets.TF_BACKEND_CONN_STR }}"
       - name: Terraform Apply
         run: terraform apply -auto-approve -input=false
         env:
