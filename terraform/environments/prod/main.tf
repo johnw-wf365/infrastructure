@@ -6,14 +6,14 @@ terraform {
 }
 
 module "networking" {
-  source = "../modules/networking"
+  source = "../../modules/networking"
 
   environment = "prod"
   region      = var.region
 }
 
 module "compute" {
-  source = "../modules/compute"
+  source = "../../modules/compute"
 
   environment   = "prod"
   region        = var.region
@@ -22,14 +22,14 @@ module "compute" {
 }
 
 module "dns" {
-  source = "../modules/dns"
+  source = "../../modules/dns"
 
   environment = "prod"
   server_ip   = module.compute.server_public_ip
 }
 
 module "database" {
-  source = "../modules/database"
+  source = "../../modules/database"
 
   environment = "prod"
   server_id   = module.compute.server_id
